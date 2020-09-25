@@ -31,16 +31,13 @@ int main(void) {
 
         int tmp_max = 0;
 
-        for (int m = 0; m < N - 2; m += 2) { tmp_max = tmp_max > L_v[m + 2] - L_v[m] ? tmp_max : L_v[m + 2] - L_v[m]; }
+        for (int m = 0; m < N - 2; m += 2) { tmp_max = max(tmp_max, L_v[m + 2] - L_v[m]); }
 
-        tmp_max = tmp_max > L_v[N - 1] - L_v[N - 2] ? tmp_max : L_v[N - 1] - L_v[N - 2];      
+        tmp_max = max(tmp_max, L_v[N - 1] - L_v[N - 2]);
 
-        for (int n = 1; n < N - 2; n += 2) { tmp_max = tmp_max > L_v[n + 2] - L_v[n] ? tmp_max : L_v[n + 2] - L_v[n]; }
+        for (int n = 1; n < N - 2; n += 2) { tmp_max = max(tmp_max, L_v[n + 2] - L_v[n]); }
 
-        tmp_max = tmp_max > L_v[1] - L_v[0] ? tmp_max : L_v[1] - L_v[0];
-
-        cout << tmp_max << endl;
+        cout << max(tmp_max, L_v[1] - L_v[0]) << endl;
     }
-
     return 0;
 }
